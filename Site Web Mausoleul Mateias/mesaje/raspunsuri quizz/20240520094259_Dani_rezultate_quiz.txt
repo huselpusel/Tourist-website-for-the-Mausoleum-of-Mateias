@@ -1,0 +1,4 @@
+Nume: Dani
+Intrebarea 1: b
+Intrebarea 2: a
+Intrebarea 3: c

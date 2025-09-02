@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mausoleul de la Mateias</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        
+        #image-container {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+        #current-image {
+            width: 100%; 
+            max-width: 1200px; 
+            height: auto;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; 
+            display: block; 
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .arrow:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        #prev-btn {
+            left: 10px;
+        }
+        #next-btn {
+            right: 10px;
+        }
+
+        
+        .subdivision-description {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+		
+		#scrollToTop {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			display: none;
+			padding: 0; 
+			background-color: #008CBA; 
+			color: #fff;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			transition: background-color 0.3s, transform 0.3s;
+			font-size: 18px;
+			width: 50px;
+			height: 50px;
+			display: flex; 
+			align-items: center; 
+			justify-content: center; 
+		}
+
+		#scrollToTop:hover {
+			background-color: #005f73; 
+			transform: scale(1.1);
+		}
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div>
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo"></a>
+			<ul>
+				<li>
+					<a href="index.html"><font color="silver">ACASA</font></a>
+				</li>
+				<li class="selected">
+					<a href="subdivisions.html"><font color="silver">POZE</font></a>
+				</li>
+				<li>
+					<a href="about.html"><font color="silver">DETALII</font></a>
+				</li>
+				<li>
+					<a href="contact.html"><font color="silver">ISTORIC</font></a>
+				</li>
+				<li>
+					<a href="rezervare.html"><font color="silver">REZERVARE</font></a>
+				</li>
+				<li>
+					<a href="quizz.html"><font color="silver">QUIZ</font></a>
+				</li>
+			</ul>
+		</div>
+    </div>
+    <div id="body" class="subdivisions">
+        <ul>
+            <li>
+                <div class="subdivision-description">
+                    <h3>GALERIE</h3>
+					<br>
+                    <p>
+                        Galeria noastră vă oferă o incursiune vizuală în universul acestui monument istoric deosebit. Cu imagini detaliate și cuceritoare, vă invocăm să explorați fiecare colțișor al Mausoleului de la Mateiaș, înfățișându-vă elementele sale arhitecturale remarcabile și povestindu-vă despre semnificația sa culturală și istorică.
+                    </p>
+				</br>
+                </div>
+                
+               <br> <div  id="image-container"> </br>
+                    <a href="#" id="prev-btn" class="arrow">&lt;</a>
+                    <img src="images/subdivision1.png" id="current-image" alt="Subdivision 1">
+                    <a href="#" id="next-btn" class="arrow">&gt;</a>
+                </div>
+            </li>
+
+    </div>
+
+    <button id="scrollToTop" onclick="scrollToTop()">Sus</button>
+
+    <div id="footer">
+        <div>
+            <p>
+                <font color=white> 2024 de Stan Daniel Gabriel</font> </p>
+            </p>
+            <div class="connect">
+                <a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">google+</a> <a href="http://www.freewebsitetemplates.com/misc/contact" id="contact">contact</a> <a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a> <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = ["images/subdivision1.png", "images/subdivision2.png", "images/subdivision3.png"];
+        let currentIndex = 0;
+
+        const prevBtns = document.querySelectorAll("#prev-btn");
+        const nextBtns = document.querySelectorAll("#next-btn");
+        const currentImages = document.querySelectorAll("#current-image");
+
+        function showImage(index, currentImage) {
+            currentImage.src = images[index];
+            currentIndex = index;
+        }
+
+        prevBtns.forEach((prevBtn, index) => {
+            prevBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                const currentImage = currentImages[index];
+                if (currentIndex > 0) {
+                    showImage(currentIndex - 1, currentImage);
+                }
+            });
+        });
+
+        nextBtns.forEach((nextBtn, index) => {
+            nextBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                const currentImage = currentImages[index];
+                if (currentIndex < images.length - 1) {
+                    showImage(currentIndex + 1, currentImage);
+                }
+            });
+        });
+
+        currentImages.forEach(currentImage => {
+            showImage(currentIndex, currentImage);
+        });
+    </script>
+
+<script>
+    
+window.onscroll = function() {
+var scrollToTopBtn = document.getElementById("scrollToTop");
+if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToTopBtn.style.display = "block";
+} else {
+    scrollToTopBtn.style.display = "none";
+}
+};
+
+function scrollToTop() {
+window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>

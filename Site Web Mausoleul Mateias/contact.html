@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Mausoleul de la Mateias</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<style>
+		
+		#scrollToTop {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			display: none;
+			padding: 0; 
+			background-color: #008CBA; 
+			color: #fff;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			transition: background-color 0.3s, transform 0.3s;
+			font-size: 18px;
+			width: 50px;
+			height: 50px;
+			display: flex; 
+			align-items: center; 
+			justify-content: center; 
+		}
+
+		#scrollToTop:hover {
+			background-color: #005f73; 
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo"></a>
+			<ul>
+				<li>
+					<a href="index.html"><font color="silver">ACASA</font></a>
+				</li>
+				<li>
+					<a href="subdivisions.html"><font color="silver">POZE</font></a>
+				</li>
+				<li>
+					<a href="about.html"><font color="silver">DETALII</font></a>
+				</li>
+				<li class="selected">
+					<a href="contact.html"><font color="silver">ISTORIC</font></a>
+				</li>
+				<li>
+					<a href="rezervare.html"><font color="silver">REZERVARE</font></a>
+				</li>
+				<li>
+					<a href="quizz.html"><font color="silver">QUIZ</font></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="body" class="contact">
+		<h3>ISTORIA MAUSOLEULUI</h3>
+		<BR>
+		<p>
+			Mausoleul a fost ridicat între anii 1928-1935, după planurile arhitecților Dumitru Ionescu-Berechet și State Baloșin, de către constructorul De Nicolo. La construcție a fost utilizat în principal calcar de Albești.
+
+
+		</p>
+	</BR>
+		<br>
+		<p>
+			Clădirea este compusă din două corpuri: unul orizontal, osuarul, care în 31 de cripte adăpostește osemintele a peste 2.300 de militari români și unul vertical, de forma unui turn cu foișor, spre care duce o scară în spirală.
+		</p>
+		
+		<BR>
+			<P>Din cauza infiltrațiilor de apă prin zidurile de calcar, în perioada 1945-1976 Monumentul eroilor de la Mateiaș fost supus unor lucrări de reparații. <a href="https://ro.wikipedia.org/wiki/Cutremurul_din_1977_(Rom%C3%A2nia)" title="Cutremurul din 1977 (România)">Cutremurul din 4 martie 1977</a> a provocat numeroase fisuri, astfel că în 1978 au fost întreprinse lucrări de consolidare. </P>
+		</BR>
+		<BR>
+		<P> În perioada 1980-1984 Mausoleul eroilor a fost extins prin construirea unei terase de paradă, a unor impozante scări de acces, camere muzeale, un <a href="https://ro.wikipedia.org/wiki/Basorelief" title="Basorelief">basorelief</a> având 16 m lungime și 3,5 m înălțime, executat de sculptorul Adrian Radu din Câmpulung. S-a construit și cupa din piatră de Albești în care arde o <a href="https://ro.wikipedia.org/wiki/Flac%C4%83r%C4%83_ve%C8%99nic%C4%83" title="Flacără veșnică">flacără veșnică</a> în amintirea eroilor căzuți la Mateiaș. </P>
+		</BR>
+		</div>
+		
+	</div>
+
+	<button id="scrollToTop" onclick="scrollToTop()">Sus</button>
+
+	<div id="footer">
+		<div>
+			<p>
+				<font color=white> 2024 de Stan Daniel Gabriel</font> </p>
+			</p>
+			<div class="connect">
+				<a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">google+</a> <a href="http://www.freewebsitetemplates.com/misc/contact" id="contact">contact</a> <a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a> <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		
+	window.onscroll = function() {
+	var scrollToTopBtn = document.getElementById("scrollToTop");
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		scrollToTopBtn.style.display = "block";
+	} else {
+		scrollToTopBtn.style.display = "none";
+	}
+	};
+	
+	function scrollToTop() {
+	window.scrollTo({top: 0, behavior: 'smooth'});
+	}
+	</script>
+
+</body>
+</html>

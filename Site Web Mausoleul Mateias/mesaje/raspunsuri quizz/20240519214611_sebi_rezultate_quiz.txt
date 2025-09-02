@@ -1,0 +1,4 @@
+Nume: sebi
+Intrebarea 1: a
+Intrebarea 2: b
+Intrebarea 3: c

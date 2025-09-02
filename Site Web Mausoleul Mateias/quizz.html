@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mausoleul de la Mateias</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            padding: 0;
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 18px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTop:hover {
+            background-color: #005f73;
+            transform: scale(1.1);
+        }
+
+        .quiz h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quiz label {
+            display: block;
+            margin: 10px 0 5px;
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .quiz button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4b5f67;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .quiz button:hover {
+            background-color: #005f73;
+        }
+
+        #quizResults {
+            margin-top: 20px;
+        }
+
+        #quizResults h3 {
+            text-align: center;
+        }
+
+        #quizResults p {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div>
+            <a href="index.html" id="logo"><img src="images/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="index.html" style="color: silver;">ACASA</a></li>
+                <li><a href="subdivisions.html" style="color: silver;">POZE</a></li>
+                <li><a href="about.html" style="color: silver;">DETALII</a></li>
+                <li><a href="contact.html" style="color: silver;">ISTORIC</a></li>
+                <li><a href="rezervare.html" style="color: silver;">REZERVARE</a></li>
+                <li class="selected"><a href="quizz.html" style="color: silver;">QUIZ</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="body" class="quiz">
+        <h3>Quiz despre Mausoleul Eroilor de la Mateias:</h3>
+        <form id="quizForm">
+            Nume:
+            <input type="text" id="name" name="name" required>
+            
+            <p>Cand a fost construit Mausoleul Eroilor?</p>
+            
+            </label>
+            <label class="incorrect">
+            <input type="radio" name="q1" value="a">
+            a) In secolul al XIX-lea
+            </label>
+            <label class="correct">
+                <input type="radio" name="q1" value="b">
+                b) Intre 1928-1935
+            </label>
+            <label class="incorrect">
+                <input type="radio" name="q1" value="c">
+                c) In anii 1950
+            </label>
+
+            <p>Cui este dedicat Mausoleul Eroilor?</p>
+            <label class="correct">
+                <input type="radio" name="q2" value="a">
+                a) Eroilor romani cazuti in Primul Razboi Mondial
+            </label>
+            <label class="incorrect">
+                <input type="radio" name="q2" value="b">
+                b) Oamenilor de stiinta romani celebri
+            </label>
+            <label class="incorrect">
+                <input type="radio" name="q2" value="c">
+                c) Regele Ferdinand I al Romaniei
+            </label>
+
+            <p>In ce judet din Romania se afla Mausoleul Eroilor?</p>
+            <label class="incorrect">
+                <input type="radio" name="q3" value="a">
+                a) Judetul Brasov
+            </label>
+            <label class="incorrect">
+                <input type="radio" name="q3" value="b">
+                b) Judetul Bacau
+            </label>
+            <label class="correct">
+                <input type="radio" name="q3" value="c">
+                c) Judetul Arges
+            </label>
+
+            <button type="button" onclick="submitQuiz()">Trimite raspunsurile</button>
+        </form>
+
+        <div id="quizResults" style="display: none; margin-top: 20px;"></div>
+    </div>
+
+    <button id="scrollToTop" onclick="scrollToTop()">Sus</button>
+
+</div>
+<div id="footer">
+    <div>
+        <p>
+            <font color=white> 2024 de Stan Daniel Gabriel</font> </p>
+        </p>
+        <div class="connect">
+            <a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">google+</a> <a href="http://www.freewebsitetemplates.com/misc/contact" id="contact">contact</a> <a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a> <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+        </div>
+    </div>
+</div>
+
+    <script>
+        window.onscroll = function() {
+            var scrollToTopBtn = document.getElementById("scrollToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function submitQuiz() {
+    var name = document.getElementById("name").value;
+    var form = document.getElementById("quizForm");
+    var formData = new FormData(form);
+
+    
+    formData.append('name', name);
+
+    var correctAnswers = {
+        q1: 'b',
+        q2: 'a',
+        q3: 'c'
+    };
+
+    var resultsHTML = "<h3>Răspunsuri corecte:</h3>";
+    var allCorrect = true; 
+    for (var key in correctAnswers) {
+        if (correctAnswers.hasOwnProperty(key)) {
+            var userAnswer = formData.get(key);
+            var correctAnswer = correctAnswers[key];
+            var labelClass = userAnswer === correctAnswer ? 'correct' : 'incorrect';
+
+            
+            if (labelClass === 'incorrect') {
+                allCorrect = false;
+            }
+
+            
+            resultsHTML += "<p>Întrebarea " + key.slice(1) + ": ";
+            resultsHTML += "<span class='" + labelClass + "'>" + userAnswer + "</span>";
+            resultsHTML += "</p>";
+        }
+    }
+
+    
+    resultsHTML += "<h3>Răspunsurile tale:</h3>";
+    resultsHTML += "<p>Nume: " + name + "</p>";
+    resultsHTML += "<p>Întrebarea 1: " + formData.get('q1') + "</p>";
+    resultsHTML += "<p>Întrebarea 2: " + formData.get('q2') + "</p>";
+    resultsHTML += "<p>Întrebarea 3: " + formData.get('q3') + "</p>";
+
+    var quizResultsContainer = document.getElementById("quizResults");
+    quizResultsContainer.innerHTML = resultsHTML;
+    quizResultsContainer.classList.add("active");
+
+    
+    fetch('http://localhost:8888/proiect%20mare/save_results.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('A apărut o problemă în trimiterea datelor către server.');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Rezultatele au fost trimise cu succes către server:', data);
+        
+        if (allCorrect) {
+            resultsHTML += "<p style='text-align: center; color: green;'>Felicitări! Ai răspuns corect la toate întrebările!</p>";
+            quizResultsContainer.innerHTML = resultsHTML; 
+        }
+    })
+    .catch(error => {
+        console.error('Eroare:', error);
+    });
+}
+
+    </script>
+</body>
+</html>
+

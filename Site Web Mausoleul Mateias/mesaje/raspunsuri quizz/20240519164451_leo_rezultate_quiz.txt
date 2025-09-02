@@ -1,0 +1,4 @@
+Nume: leo
+Întrebarea 1: a
+Întrebarea 2: b
+Întrebarea 3: c

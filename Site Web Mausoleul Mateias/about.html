@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+	<style>
+		
+		form {
+			max-width: 600px; 
+			margin: 0 auto; 
+			padding: 20px; 
+			background-color: #f9f9f9; 
+			border-radius: 10px; 
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+		}
+	
+		
+		label {
+			font-weight: bold; 
+			display: block; 
+			margin-bottom: 10px; 
+		}
+	
+		
+		textarea {
+			width: 100%; 
+			padding: 10px; 
+			margin-bottom: 15px; 
+			border: 1px solid #ccc; 
+			border-radius: 5px; 
+			box-sizing: border-box; 
+		}
+	
+		
+		input[type="submit"] {
+			width: 100%; 
+			padding: 10px; 
+			background-color: #007bff; 
+			color: #fff; 
+			border: none; 
+			border-radius: 5px; 
+			cursor: pointer; 
+			transition: background-color 0.3s ease; 
+		}
+	
+		
+		input[type="submit"]:hover {
+			background-color: #0056b3; 
+		}
+		
+		#scrollToTop {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			display: none;
+			padding: 0; 
+			background-color: #008CBA; 
+			color: #fff;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			transition: background-color 0.3s, transform 0.3s;
+			font-size: 18px;
+			width: 50px;
+			height: 50px;
+			display: flex; 
+			align-items: center; 
+			justify-content: center; 
+		}
+
+		#scrollToTop:hover {
+			background-color: #005f73; 
+			transform: scale(1.1);
+		}
+	</style>
+<head>
+	<meta charset="UTF-8">
+	<title>Mausoleul de la Mateias</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo"></a>
+			<ul>
+				<li>
+					<a href="index.html"><font color="silver">ACASA</font></a>
+				</li>
+				<li>
+					<a href="subdivisions.html"><font color="silver">POZE</font></a>
+				</li>
+				<li class="selected">
+					<a href="about.html"><font color="silver">DETALII</font></a>
+				</li>
+				<li>
+					<a href="contact.html"><font color="silver">ISTORIC</font></a>
+				</li>
+				<li>
+					<a href="rezervare.html"><font color="silver">REZERVARE</font></a>
+				</li>
+				<li>
+					<a href="quizz.html"><font color="silver">QUIZ</font></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="body" class="about">
+		<h3>ADRESA</h3>
+		<p>
+			Mausoleul Mateiaș este situat pe Drumul european E 574 (DN 73), la 11 km de Câmpulung spre Brașov.
+Mausoleul Mateiaș aparține de Muzeul Municipal Câmpulung – <a href="https://muzeulcampulung.ro/mausoleul-mateias" title="Basorelief">site oficial</a>
+		</p>
+		<h3>PROGRAM DE VIZITARE</h3>
+		<p>
+			<BR>orele 9.00 -17.00  (noiembrie-martie)</BR>
+orele 9.00 -19.00  (aprilie-octombrie)
+
+		</p>
+		<h3>TAXA DE INTRARE</h3>
+		<p>
+			adulți - 6 lei / copii, elevi, pensionari - 3 lei.
+
+		</p>
+	
+	
+	
+		<p>
+			<div style="max-width: 800px; margin: 0 auto;">
+				<iframe loading="lazy" style="border: 0; width: 100%;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11226.690390857282!2d25.1342132!3d45.2948373!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc4c047979e49a2dd!2sMausoleul+Mateia%C8%99!5e0!3m2!1sen!2sro!4v1543929151056" width="800" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+			</div>
+		</p>
+		
+		<form method="post" action="scrie_mesaj.php">
+			<label for="message">Trimite un mesaj anonim:</label>
+			<textarea id="message" name="message" rows="4" cols="50" required></textarea>
+			<input type="submit" value="Trimite Mesaj">
+		</form>
+
+		<button id="scrollToTop" onclick="scrollToTop()">Sus</button>
+
+	</div>
+	<div id="footer">
+		<div>
+			<p>
+				<font color=white> 2024 de Stan Daniel Gabriel</font> </p>
+			</p>
+			<div class="connect">
+				<a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">google+</a> <a href="http://www.freewebsitetemplates.com/misc/contact" id="contact">contact</a> <a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a> <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		
+window.onscroll = function() {
+	var scrollToTopBtn = document.getElementById("scrollToTop");
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		scrollToTopBtn.style.display = "block";
+	} else {
+		scrollToTopBtn.style.display = "none";
+	}
+};
+
+function scrollToTop() {
+	window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>
